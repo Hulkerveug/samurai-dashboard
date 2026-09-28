@@ -1,0 +1,24 @@
+{
+  "id": "monk",
+  "version": "v1.1",
+  "prompt": "sohei monk, warrior monk robes, naginata, Heian, zen wrath mood, volumetric temple rays, 35mm wide",
+  "chain": [
+    "/45-char sohei monk",
+    "/49-outfit warrior monk robes, naginata",
+    "/14-era Heian",
+    "/15-mood zen wrath",
+    "/34-keylight volumetric temple rays",
+    "/27-camera 35mm wide",
+    "/78-enhance texture boost 1.3",
+    "/79-facefix 0.7"
+  ],
+  "lora_stack": [
+    "samurai_armor:0.9",
+    "neo_kyoto:0.7"
+  ],
+  "negative": "bad anatomy, extra limbs, blurry, lowres, watermark, deformed hands",
+  "ratio": "3:2",
+  "steps": 30,
+  "cfg": 7,
+  "sampler": "DPM++ 2M Karras"
+}

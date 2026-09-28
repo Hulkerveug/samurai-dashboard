@@ -1,0 +1,24 @@
+{
+  "id": "daimyo",
+  "version": "v1.1",
+  "prompt": "daimyo, ornate kimono, daisho, Azuchi-Momoyama, regal mood, golden hour palace, 85mm",
+  "chain": [
+    "/45-char daimyo",
+    "/49-outfit ornate kimono, daisho",
+    "/14-era Azuchi-Momoyama",
+    "/15-mood regal",
+    "/34-keylight golden hour palace",
+    "/27-camera 85mm",
+    "/78-enhance texture boost 1.3",
+    "/79-facefix 0.7"
+  ],
+  "lora_stack": [
+    "samurai_armor:0.9",
+    "neo_kyoto:0.7"
+  ],
+  "negative": "bad anatomy, extra limbs, blurry, lowres, watermark, deformed hands",
+  "ratio": "3:2",
+  "steps": 30,
+  "cfg": 7,
+  "sampler": "DPM++ 2M Karras"
+}

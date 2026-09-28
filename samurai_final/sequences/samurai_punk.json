@@ -1,0 +1,24 @@
+{
+  "id": "samurai_punk",
+  "version": "v1.1",
+  "prompt": "cyber-samurai, techwear yoroi, LED katana, Neo-Tokyo 2077, cyberpunk mood, neon rim cyan/red, 35mm anamorphic",
+  "chain": [
+    "/45-char cyber-samurai",
+    "/49-outfit techwear yoroi, LED katana",
+    "/14-era Neo-Tokyo 2077",
+    "/15-mood cyberpunk",
+    "/34-keylight neon rim cyan/red",
+    "/27-camera 35mm anamorphic",
+    "/78-enhance texture boost 1.3",
+    "/79-facefix 0.7"
+  ],
+  "lora_stack": [
+    "samurai_armor:0.9",
+    "neo_kyoto:0.7"
+  ],
+  "negative": "bad anatomy, extra limbs, blurry, lowres, watermark, deformed hands",
+  "ratio": "3:2",
+  "steps": 30,
+  "cfg": 7,
+  "sampler": "DPM++ 2M Karras"
+}

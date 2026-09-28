@@ -1,0 +1,24 @@
+{
+  "id": "ninja",
+  "version": "v1.1",
+  "prompt": "shinobi, black shozoku, mask, Iga night, stealth mood, moonlight rim, 35mm dutch",
+  "chain": [
+    "/45-char shinobi",
+    "/49-outfit black shozoku, mask",
+    "/14-era Iga night",
+    "/15-mood stealth",
+    "/34-keylight moonlight rim",
+    "/27-camera 35mm dutch",
+    "/78-enhance texture boost 1.3",
+    "/79-facefix 0.7"
+  ],
+  "lora_stack": [
+    "samurai_armor:0.9",
+    "neo_kyoto:0.7"
+  ],
+  "negative": "bad anatomy, extra limbs, blurry, lowres, watermark, deformed hands",
+  "ratio": "3:2",
+  "steps": 30,
+  "cfg": 7,
+  "sampler": "DPM++ 2M Karras"
+}

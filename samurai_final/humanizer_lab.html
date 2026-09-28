@@ -1,0 +1,164 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Hermes Humanizer Lab</title>
+  <style>
+    *{margin:0;padding:0;box-sizing:border-box}
+    body{background:#0a0e27;color=#e2e8f0;font-family:Inter,system-ui,sans-serif}
+    .container{max-width:1200px;margin:0 auto;padding:24px}
+    .header{display:flex;justify-content:space-between;align-items:center;margin-bottom:24px}
+    .title{font-size:1.75rem;font-weight:700;color:#a3ff12}
+    .status{font-size:0.875rem;color:#8b949e}
+    .tab-grid{display:flex;border-bottom:1px solid #2a344f;margin-bottom:16px}
+    .tab{padding:12px 24px;border-bottom:3px solid transparent;cursor:pointer}
+    .tab.active{border-color:#a3ff12;color:#a3ff12}
+    .card{background:#151b3a;border:1px solid #2a344f;border-radius:12px;padding:20px;margin-bottom:16px}
+    .card h3{margin-bottom:16px;font-size:1rem;color:#cbd5e1}
+    .btn{background:#a3ff12;color:#000;font-weight:600;padding:10px 20px;border:none;border-radius:6px;cursor:pointer}
+    .btn:disabled{background:#374151;cursor:not-allowed}
+    .input-area{flex-direction:column;gap:12px}
+    .fill-input{width:100%;background:#0a0e27;border:1px solid #2a344f;border-radius:6px;padding:12px;font-size:1rem;color:#e2e8f0}
+    .fill-input:focus:outline:none;border-color:#a3ff12}
+    .result-area{background:#0a0e27;border:1px solid #2a344f;border-radius:6px;padding:16px;font-size:0.95rem;line-height:1.6;color:#cbd5e1}
+    .tag{display:inline-block;background:#374151;color:#a3ff12;padding:4px 10px;border-radius:9999px;font-size:0.75rem;margin:2px}
+    .tag:not(:last-child){margin-right:8px}
+    .log-entry{font-family:monospace;font-size:0.75rem;color:#64748b;padding:4px 0;border-bottom:1px solid #16213e}
+  </style>
+</head>
+<body>
+  <div class="container">
+    <div class="header">
+      <h1 class="title">Hermes Humanizer Lab</h1>
+      <span class="status">localhost:8000</span>
+    </div>
+    
+    <div class="tab-grid">
+      <div class="tab active" onclick="setTab('technical')">Technical</div>
+      <div class="tab" onclick="setTab('security')">Security Assessment</div>
+      <div class="tab" onclick="setTab('creative')">Creative Samurai</div>
+      <div class="tab" onclick="setTab('code')">Code</div>
+    </div>
+    
+    <div id="content"></div>
+  </div>
+
+  <script>
+// Sample templates for each context
+const templates = {
+  technical: [
+    "The primary defense against ___ injection is ___.",
+    "API rate limiting prevents ___ exhaustion.",
+    "Environment variables protect ___ from ___ exposure."
+  ],
+  security: [
+    "To enable ___, configure the ___ role with ___ permissions.",
+    "The vulnerability in ___ requires patching the ___ module.",
+    "Access control policy ___ defines ___ boundaries."
+  ],
+  creative: [
+    "ronin in ___ field",
+    "cyberpunk ___ at dusk",
+    "melancholic ___ by the ___"
+  ],
+  code: [
+    "def secure_connector(___):",
+    "ALLOWED_URLS = ['___']",
+    "def validate_input(___):"
+  ]
+};
+
+// Context-specific tags
+const contextTags = {
+  technical: ["allowlist", "validation", "rate-limit", "sandbox", "boundary"],
+  security: ["IAM", "VPC", "encryption", "audit", "compliance"],
+  creative: ["purple flower", "sunset rim", "neon haze", "volumetric fog", "cinematic"],
+  code: ["requests", "ValidationError", "timeout", "middleware", "handler"]
+};
+
+function setTab(type) {
+  document.querySelectorAll('.tab').forEach(t => t.classList.remove('active'));
+  document.querySelector(`.tab[onclick="setTab('${type}')"]`).classList.add('active');
+  
+  const content = document.getElementById('content');
+  content.innerHTML = `
+    <div class="card">
+      <h3>Fill-in-the-Blank Editor</h3>
+      <div class="input-area">
+        <select id="template-select" style="width:100%;padding:8px;border:1px solid #2a344f;border-radius:6px;background:#0a0e27;color:#e2e8f0;">
+          <option value="">Choose a template...</option>
+          ${templates[type].map((t, i) => `<option value="${t}">${t}</option>`).join('')}
+        </select>
+        <textarea id="fill-input" class="fill-input" rows="4" placeholder="Type or paste text with ___ blanks..."></textarea>
+        <button class="btn" onclick="fillBlanks()">Fill Blanks</button>
+      </div>
+    </div>
+    <div class="card">
+      <h3>Humanized Result</h3>
+      <div id="result-area" class="result-area" style="display:none;">
+        <div id="result-text"></div>
+        <div style="margin-top:12px;display:flex;gap:8px;" id="tag-area"></div>
+      </div>
+    </div>
+    <div class="card">
+      <h3>Log</h3>
+      <div id="log-area" style="max-height:200px;overflow-y:auto;"></div>
+    </div>
+  `;
+  
+  document.getElementById('template-select').addEventListener('change', (e) => {
+    document.getElementById('fill-input').value = e.target.value;
+  });
+}
+
+function log(msg) {
+  const logArea = document.getElementById('log-area');
+  const entry = document.createElement('div');
+  entry.className = 'log-entry';
+  entry.textContent = `[${new Date().toLocaleTimeString()}] ${msg}`;
+  logArea.appendChild(entry);
+  logArea.scrollTop = logArea.scrollHeight;
+}
+
+async function fillBlanks() {
+  const input = document.getElementById('fill-input').value;
+  if (!input) return;
+  
+  const resultArea = document.getElementById('result-area');
+  const resultText = document.getElementById('result-text');
+  const tagArea = document.getElementById('tag-area');
+  
+  log(`Sending to API: ${input.substring(0, 50)}...`);
+  resultArea.style.display = 'block';
+  
+  try {
+    const response = await fetch('http://127.0.0.1:8000/api/humanize-fill', {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify({ input_text: input, context_type: 'technical_completion' })
+    });
+    
+    const data = await response.json();
+    log(`API response received: ${data.status}`);
+    
+    resultText.textContent = data.completion || 'No completion received';
+    
+    // Add context tags
+    const currentType = document.querySelector('.tab.active').getAttribute('onclick').match(/'(\w+)'/)[1];
+    tagArea.innerHTML = contextTags[currentType].map(t => 
+      `<span class="tag">${t}</span>`
+    ).join('');
+    
+  } catch (e) {
+    log(`Error: ${e.message}`);
+    resultText.textContent = 'API call failed - ensure hermes_mother.py is running';
+    resultArea.style.display = 'block';
+  }
+}
+
+// Initialize
+setTab('technical');
+  </script>
+</body>
+</html>

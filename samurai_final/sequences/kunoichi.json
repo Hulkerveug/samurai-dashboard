@@ -1,0 +1,24 @@
+{
+  "id": "kunoichi",
+  "version": "v1.1",
+  "prompt": "kunoichi, crimson kimono + kunai, Edo, lethal grace mood, neon rim red, 50mm",
+  "chain": [
+    "/45-char kunoichi",
+    "/49-outfit crimson kimono + kunai",
+    "/14-era Edo",
+    "/15-mood lethal grace",
+    "/34-keylight neon rim red",
+    "/27-camera 50mm",
+    "/78-enhance texture boost 1.3",
+    "/79-facefix 0.7"
+  ],
+  "lora_stack": [
+    "samurai_armor:0.9",
+    "neo_kyoto:0.7"
+  ],
+  "negative": "bad anatomy, extra limbs, blurry, lowres, watermark, deformed hands",
+  "ratio": "3:2",
+  "steps": 30,
+  "cfg": 7,
+  "sampler": "DPM++ 2M Karras"
+}

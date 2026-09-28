@@ -1,0 +1,24 @@
+{
+  "id": "ronin",
+  "version": "v1.1",
+  "prompt": "ronin, tattered kimono + katana, Edo wandering, melancholic mood, overcast soft, 50mm eye level",
+  "chain": [
+    "/45-char ronin",
+    "/49-outfit tattered kimono + katana",
+    "/14-era Edo wandering",
+    "/15-mood melancholic",
+    "/34-keylight overcast soft",
+    "/27-camera 50mm eye level",
+    "/78-enhance texture boost 1.3",
+    "/79-facefix 0.7"
+  ],
+  "lora_stack": [
+    "samurai_armor:0.9",
+    "neo_kyoto:0.7"
+  ],
+  "negative": "bad anatomy, extra limbs, blurry, lowres, watermark, deformed hands",
+  "ratio": "3:2",
+  "steps": 30,
+  "cfg": 7,
+  "sampler": "DPM++ 2M Karras"
+}

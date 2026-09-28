@@ -1,0 +1,24 @@
+{
+  "id": "shogun",
+  "version": "v1.1",
+  "prompt": "shogun, gold yoroi armor, kabuto, Sengoku warlord, dominant mood, Rembrandt key, 85mm low angle",
+  "chain": [
+    "/45-char shogun",
+    "/49-outfit gold yoroi armor, kabuto",
+    "/14-era Sengoku warlord",
+    "/15-mood dominant",
+    "/34-keylight Rembrandt key",
+    "/27-camera 85mm low angle",
+    "/78-enhance texture boost 1.3",
+    "/79-facefix 0.7"
+  ],
+  "lora_stack": [
+    "samurai_armor:0.9",
+    "neo_kyoto:0.7"
+  ],
+  "negative": "bad anatomy, extra limbs, blurry, lowres, watermark, deformed hands",
+  "ratio": "3:2",
+  "steps": 30,
+  "cfg": 7,
+  "sampler": "DPM++ 2M Karras"
+}

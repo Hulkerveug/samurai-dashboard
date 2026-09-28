@@ -1,0 +1,24 @@
+{
+  "id": "ashigaru",
+  "version": "v1.1",
+  "prompt": "ashigaru foot soldier, light ashigaru armor, yari, Sengoku battlefield, determined mood, stormy contrast, 24mm battlefield",
+  "chain": [
+    "/45-char ashigaru foot soldier",
+    "/49-outfit light ashigaru armor, yari",
+    "/14-era Sengoku battlefield",
+    "/15-mood determined",
+    "/34-keylight stormy contrast",
+    "/27-camera 24mm battlefield",
+    "/78-enhance texture boost 1.3",
+    "/79-facefix 0.7"
+  ],
+  "lora_stack": [
+    "samurai_armor:0.9",
+    "neo_kyoto:0.7"
+  ],
+  "negative": "bad anatomy, extra limbs, blurry, lowres, watermark, deformed hands",
+  "ratio": "3:2",
+  "steps": 30,
+  "cfg": 7,
+  "sampler": "DPM++ 2M Karras"
+}

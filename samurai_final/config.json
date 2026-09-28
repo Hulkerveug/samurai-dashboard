@@ -1,0 +1,12 @@
+{
+  "a1111_url": "http://127.0.0.1:7860",
+  "comfyui_url": "http://127.0.0.1:8188",
+  "default_backend": "a1111",
+  "default_model": "SDXL",
+  "default_steps": 30,
+  "default_cfg": 7,
+  "xtobe_path": "C:\\Users\\Nishan\\workspace\\xtobe-shadow\\samurai\\",
+  "version": "v1.1",
+  "legacy_path": "C:\\Users\\Nishan\\Xtobe\\Skills\\samurai\\",
+  "workspace": "xtobe-shadow"
+}

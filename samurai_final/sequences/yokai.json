@@ -1,0 +1,24 @@
+{
+  "id": "yokai",
+  "version": "v1.1",
+  "prompt": "yokai samurai, oni mask + bone armor + katana, mythic, terrifying mood, blue hour + volumetric fog, 28mm low",
+  "chain": [
+    "/45-char yokai samurai",
+    "/49-outfit oni mask + bone armor + katana",
+    "/14-era mythic",
+    "/15-mood terrifying",
+    "/34-keylight blue hour + volumetric fog",
+    "/27-camera 28mm low",
+    "/78-enhance texture boost 1.3",
+    "/79-facefix 0.7"
+  ],
+  "lora_stack": [
+    "samurai_armor:0.9",
+    "neo_kyoto:0.7"
+  ],
+  "negative": "bad anatomy, extra limbs, blurry, lowres, watermark, deformed hands",
+  "ratio": "3:2",
+  "steps": 30,
+  "cfg": 7,
+  "sampler": "DPM++ 2M Karras"
+}

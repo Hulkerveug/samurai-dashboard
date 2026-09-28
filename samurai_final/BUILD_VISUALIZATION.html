@@ -1,0 +1,318 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SAMURAI BUILD v1.1 - Visualization</title>
+    <style>
+        :root {
+            --background: #0a0a1a;
+            --card: #1a1a2e;
+            --accent: #00d4ff;
+            --border: #2d2d44;
+            --text: #e0e0ff;
+            --mut text: #8888aa;
+        }
+        body {
+            margin: 0;
+            padding: 0;
+            background: var(--background);
+            font-family: 'Segoe UI', system-ui, sans-serif;
+            color: var(--text);
+            min-height: 100vh;
+        }
+        .container {
+            max-width: 1400px;
+            margin: 0 auto;
+            padding: 40px;
+        }
+        h1 {
+            text-align: center;
+            margin-bottom: 10px;
+            color: #00ff88;
+        }
+        .subtitle {
+            text-align: center;
+            color: var(--muted-text);
+            margin-bottom: 40px;
+        }
+        .stats {
+            display: flex;
+            justify-content: center;
+            gap: 40px;
+            margin-bottom: 40px;
+        }
+        .stat-box {
+            background: var(--card);
+            padding: 20px 30px;
+            border-radius: 12px;
+            text-align: center;
+            border: 1px solid var(--border);
+        }
+        .stat-value {
+            font-size: 2rem;
+            font-weight: bold;
+            color: var(--accent);
+        }
+        .stat-label {
+            font-size: 0.9rem;
+            color: var(--muted-text);
+            margin-top: 5px;
+        }
+        .tree-container {
+            background: var(--card);
+            border-radius: 12px;
+            padding: 20px;
+            border: 1px solid var(--border);
+        }
+        .tree {
+            list-style: none;
+            padding: 0;
+            margin: 0;
+        }
+        .tree li {
+            margin: 5px 0;
+            padding-left: 20px;
+            position: relative;
+        }
+        .tree li::before {
+            content: '';
+            position: absolute;
+            left: -12px;
+            top: 5px;
+            width: 8px;
+            height: 8px;
+            background: var(--accent);
+            border-radius: 50%;
+        }
+        .folder {
+            color: #00d4ff;
+            cursor: pointer;
+            display: inline-block;
+        }
+        .folder:hover {
+            text-decoration: underline;
+        }
+        .file {
+            color: #ff9e6b;
+            display: inline-block;
+        }
+        .count {
+            color: #666688;
+            font-size: 0.85em;
+        }
+        .soldier-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+            gap: 15px;
+            margin: 25px 0;
+        }
+        .soldier-card {
+            background: var(--card);
+            padding: 15px;
+            border-radius: 8px;
+            border: 1px solid var(--border);
+            text-align: center;
+        }
+        .soldier-name {
+            font-weight: bold;
+            color: #00ff88;
+            margin-bottom: 5px;
+        }
+        .chain {
+            font-size: 0.8em;
+            color: var(--muted-text);
+        }
+        .workflow-cards {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 15px;
+            margin: 25px 0;
+        }
+        .workflow-card {
+            background: var(--card);
+            padding: 20px;
+            border-radius: 8px;
+            border: 1px solid var(--border);
+        }
+        .workflow-name {
+            color: #00d4ff;
+            font-weight: bold;
+            margin-bottom: 10px;
+        }
+        .dark-mode {
+            background: #000;
+            color: #fff;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>🗡️ SAMURAI BUILD v1.1</h1>
+        <p class="subtitle">Creative Pipeline System • 46 files • 26KB</p>
+        
+        <div class="stats">
+            <div class="stat-box">
+                <div class="stat-value">46</div>
+                <div class="stat-label">Files</div>
+            </div>
+            <div class="stat-box">
+                <div class="stat-value">55.6KB</div>
+                <div class="stat-label">Disk Size</div>
+            </div>
+            <div class="stat-box">
+                <div class="stat-value">10</div>
+                <div class="stat-label">Soldier Profiles</div>
+            </div>
+            <div class="stat-box">
+                <div class="stat-value">9</div>
+                <div class="stat-label">Code Modules</div>
+            </div>
+        </div>
+
+        <div class="tree-container">
+            <h2 style="color: var(--accent); margin-top: 0;">📁 samurai/</h2>
+            <ul class="tree">
+                <li><span class="folder">SKILL.md</span> (spec doc)</li>
+                <li><span class="folder">manifest.json</span> v1.1</li>
+                <li><span class="folder">config.json</span> (backend URLs)</li>
+                <li><span class="folder">WIRED.md</span> (docs)</li>
+                <li><span class="folder">samurai_cli.py</span> (CLI with --backend)</li>
+                <li><span class="folder">samurai.bat</span> (Windows launcher)</li>
+                <li><span class="folder">Code/</span> <span class="count">(9 files)</span>
+                    <ul>
+                        <li><span class="file">a1111_connector.py</span></li>
+                        <li><span class="file">comfyui_connector.py</span></li>
+                        <li><span class="file">deepdream.py</span></li>
+                        <li><span class="file">deploy.py</span></li>
+                        <li><span class="file">generator.py</span></li>
+                        <li><span class="file">model_loader.py</span></li>
+                        <li><span class="file">psychovisual.py</span></li>
+                        <li><span class="file">refine_pipeline.py</span></li>
+                        <li><span class="file">samurai_cli.py</span></li>
+                    </ul>
+                </li>
+                <li><span class="folder">Commands/</span> <span class="count">(9 folders)</span>
+                    <ul>
+                        <li><span class="file">01-11/README.md</span></li>
+                        <li><span class="file">12-22/README.md</span></li>
+                        <li><span class="file">23-33/README.md</span></li>
+                        <li><span class="file">34-44/README.md</span></li>
+                        <li><span class="file">45-55/README.md</span></li>
+                        <li><span class="file">56-66/README.md</span></li>
+                        <li><span class="file">67-77/README.md</span></li>
+                        <li><span class="file">78-88/README.md</span></li>
+                        <li><span class="file">89-99/README.md</span></li>
+                    </ul>
+                </li>
+                <li><span class="folder">sequences/</span> <span class="count">(10 soldiers)</span>
+                    <ul>
+                        <li><span class="file">ronin.json</span></li>
+                        <li><span class="file">shogun.json</span></li>
+                        <li><span class="file">ninja.json</span></li>
+                        <li><span class="file">kunoichi.json</span></li>
+                        <li><span class="file">daimyo.json</span></li>
+                        <li><span class="file">monk.json</span></li>
+                        <li><span class="file">ashigaru.json</span></li>
+                        <li><span class="file">yokai.json</span></li>
+                        <li><span class="file">samurai_punk.json</span></li>
+                        <li><span class="file">hatamoto.json</span></li>
+                    </ul>
+                </li>
+                <li><span class="folder">Workflows/</span>
+                    <ul>
+                        <li><span class="file">samurai_base.json</span></li>
+                        <li><span class="file">samurai_lora_stack.json</span></li>
+                        <li><span class="file">samurai_upscale_facefix.json</span></li>
+                    </ul>
+                </li>
+                <li><span class="folder">Templates/</span>
+                    <ul>
+                        <li><span class="file">creative-brief.md</span></li>
+                        <li><span class="file">deployment-checklist.md</span></li>
+                        <li><span class="file">prompt-master.md</span></li>
+                    </ul>
+                </li>
+                <li><span class="folder">Pipeline/</span> <span class="count">(5 stages)</span>
+                    <ul>
+                        <li><span class="folder">01_Concept/</span> <span class="file">stage.md</span></li>
+                        <li><span class="folder">02_Model/</span> <span class="file">stage.md</span></li>
+                        <li><span class="folder">03_Gen/</span> <span class="file">stage.md</span></li>
+                        <li><span class="folder">04_Refine/</span> <span class="file">stage.md</span></li>
+                        <li><span class="folder">05_Deploy/</span> <span class="file">stage.md</span></li>
+                    </ul>
+                </li>
+                <li><span class="folder">projects/my_project/</span>
+                    <ul>
+                        <li><span class="file">config.json</span></li>
+                    </ul>
+                </li>
+            </ul>
+        </div>
+
+        <h2 style="color: var(--accent); margin-top: 30px;">🎯 10 Soldier Profiles</h2>
+        <div class="soldier-grid">
+            <div class="soldier-card">
+                <div class="soldier-name">RONIN</div>
+                <div class="chain">/45-char → /lon armor → /14-era → /15-mood → /34-keylight → /27-camera</div>
+            </div>
+            <div class="soldier-card">
+                <div class="soldier-name">SHOGUN</div>
+                <div class="chain">Imperial command • gold trim • Edo period • regal • chiaroscuro</div>
+            </div>
+            <div class="soldier-card">
+                <div class="soldier-name">NINJA</div>
+                <div class="chain">Stealth gear • black folds • Sengoku • shadow • moonlight</div>
+            </div>
+            <div class="soldier-card">
+                <div class="soldier-name">KUNOICHI</div>
+                <div class="chain">Female warrior • dual blades • Momoyama • grace • dawn</div>
+            </div>
+            <div class="soldier-card">
+                <div class="soldier-name">DAIMYO</div>
+                <div class="chain">Lord • silk robes • Warring States • authority • golden hour</div>
+            </div>
+            <div class="soldier-card">
+                <div class="soldier-name">MONK</div>
+                <div class="chain">Ascetic • robes • Heian • serenity • incense</div>
+            </div>
+            <div class="soldier-card">
+                <div class="soldier-name">ASHIGARU</div>
+                <div class="chain">Foot soldier • armor • Bakumatsu • grit • fog</div>
+            </div>
+            <div class="soldier-card">
+                <div class="soldier-name">YOKAI</div>
+                <div class="chain">Supernatural • ethereal • various • mysterious • aurora</div>
+            </div>
+            <div class="soldier-card">
+                <div class="soldier-name">SAMURAI_PUNK</div>
+                <div class="chain">Cyber • neon • future • edge • LED</div>
+            </div>
+            <div class="soldier-card">
+                <div class="soldier-name">HATAMOTO</div>
+                <div class="chain">Hatamoto • banners • Edo • honor • sunrise</div>
+            </div>
+        </div>
+
+        <h2 style="color: var(--accent); margin-top: 30px;">🔧 Workflows</h2>
+        <div class="workflow-cards">
+            <div class="workflow-card">
+                <div class="workflow-name">samurai_base.json</div>
+                <p style="color: var(--muted-text); margin: 0;">Core generation pipeline<br>Unified model stack</p>
+            </div>
+            <div class="workflow-card">
+                <div class="workflow-name">samurai_lora_stack.json</div>
+                <p style="color: var(--muted-text); margin: 0;">LoRA: samurai_armor:0.9 + neo_kyoto:0.7<br>Style enhancement layer</p>
+            </div>
+            <div class="workflow-card">
+                <div class="workflow-name">samurai_upscale_facefix.json</div>
+                <p style="color: var(--muted-text); margin: 0;">Face restoration + upscaling<br>2x super-resolution</p>
+            </div>
+        </div>
+
+        <p style="text-align: center; color: var(--muted-text); margin-top: 40px;">
+            Build completed • Ready for deployment • Git operations frozen
+        </p>
+    </div>
+</body>
+</html>
